@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Basavaraj Korivad Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Portfolio of Basavaraj Korivad, AI filmmaker in Bengaluru: AI-generated brand ads, product commercials and social reels.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a single scrolling reel sheet. Hero states the offer, vertical reel posters sit beside a facts column, then tools, process, projects and contact. */
+:root {
+  --bg: #f2f1ef;
+  --surface: #e9e7e4;
+  --ink: #1b1a19;
+  --muted: #5d5a57;
+  --line: #d3d0cc;
+  --accent: #c6301d;
+  --accent-ink: #ffffff;
+  --p1-a: #f0a93b;
+  --p1-b: #d8541f;
+  --p2-a: #b8321e;
+  --p2-b: #5a1a12;
+  --poster-ink: #fff8ef;
+  --font-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #151413;
+    --surface: #201e1d;
+    --ink: #efece8;
+    --muted: #a6a29d;
+    --line: #35322f;
+    --accent: #ff6a4d;
+    --accent-ink: #1b0a05;
+    --p1-a: #e59a2e;
+    --p1-b: #b8431a;
+    --p2-a: #9c2b19;
+    --p2-b: #3a100b;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #151413;
+  --surface: #201e1d;
+  --ink: #efece8;
+  --muted: #a6a29d;
+  --line: #35322f;
+  --accent: #ff6a4d;
+  --accent-ink: #1b0a05;
+  --p1-a: #e59a2e;
+  --p1-b: #b8431a;
+  --p2-a: #9c2b19;
+  --p2-b: #3a100b;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0;
+}
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.wrap { max-width: 1080px; margin: 0 auto; }
+
+/* top bar */
+.bar { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 20px; flex-wrap: wrap; }
+.mark { font-family: var(--font-display); font-weight: 700; font-size: 17px; letter-spacing: -0.01em; text-decoration: none; }
+.nav { display: flex; gap: 20px; flex-wrap: wrap; }
+.nav a { font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); text-decoration: none; }
+.nav a:hover { color: var(--ink); }
+
+/* hero */
+.hero { padding-block: 40px 56px; border-bottom: 1px solid var(--line); }
+.eyebrow { font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin: 0 0 16px; }
+h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(38px, 7.2vw, 84px); line-height: 1.02; letter-spacing: -0.03em; margin: 0; max-width: 14ch; text-wrap: balance; }
+.hero p { max-width: 56ch; color: var(--muted); font-size: 18px; margin: 24px 0 0; }
+.hero-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; border-radius: 6px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid var(--ink); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn.ghost { background: transparent; color: var(--ink); }
+.btn:hover { transform: translateY(-1px); }
+
+/* sections */
+section { padding-block: 64px; border-bottom: 1px solid var(--line); }
+.sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 32px; }
+h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(26px, 4vw, 40px); letter-spacing: -0.02em; line-height: 1.1; margin: 0; }
+.label { font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+
+/* reels */
+.reels { display: grid; grid-template-columns: repeat(2, minmax(0, 280px)) minmax(0, 1fr); gap: 28px; align-items: start; }
+.reel { display: block; text-decoration: none; }
+.poster {
+  position: relative; aspect-ratio: 9 / 16; border-radius: 10px; overflow: hidden;
+  padding: 20px; display: flex; flex-direction: column; justify-content: space-between;
+  color: var(--poster-ink);
+  transition: transform .25s ease;
+}
+.reel:hover .poster { transform: translateY(-4px); }
+.p1 { background: linear-gradient(160deg, var(--p1-a), var(--p1-b)); }
+.p2 { background: linear-gradient(160deg, var(--p2-a), var(--p2-b)); }
+.poster::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, rgba(0,0,0,.05) 0 2px, transparent 2px 5px); pointer-events: none; }
+.poster .tc { font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; opacity: .85; display: flex; justify-content: space-between; position: relative; z-index: 1; }
+.poster .title { font-family: var(--font-display); font-weight: 800; font-size: 40px; line-height: .95; letter-spacing: -0.03em; position: relative; z-index: 1; }
+.play { position: absolute; top: 50%; left: 50%; width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 50%; background: rgba(0,0,0,.35); display: grid; place-items: center; z-index: 1; }
+.play svg { width: 24px; height: 24px; fill: var(--poster-ink); margin-left: 3px; }
+.cap { margin: 14px 0 0; }
+.cap strong { display: block; font-family: var(--font-display); font-size: 18px; font-weight: 700; }
+.cap span { display: block; color: var(--muted); font-size: 14px; margin-top: 2px; }
+.cap .go { display: inline-block; margin-top: 8px; font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); border-bottom: 1px solid var(--accent); }
+
+.facts { border-top: 1px solid var(--ink); margin: 0; padding: 0; }
+.facts div { display: grid; grid-template-columns: 96px 1fr; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.facts dt { font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+.facts dd { margin: 0; }
+
+/* tools & skills */
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 40px; }
+.cols h3 { font-family: var(--font-mono); font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: .1em; color: var(--accent); margin: 0 0 12px; }
+.cols ul { list-style: none; margin: 0; padding: 0; }
+.cols li { padding: 8px 0; border-bottom: 1px solid var(--line); }
+.cols li:first-child { border-top: 1px solid var(--line); }
+
+/* process */
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0; border-top: 1px solid var(--ink); }
+.step { padding: 20px 20px 24px 0; }
+.step + .step { padding-left: 20px; border-left: 1px solid var(--line); }
+.step .n { font-family: var(--font-mono); font-size: 12px; color: var(--accent); letter-spacing: .1em; }
+.step h3 { font-family: var(--font-display); font-size: 21px; margin: 8px 0 8px; letter-spacing: -0.01em; }
+.step p { margin: 0; color: var(--muted); font-size: 15px; }
+
+/* projects */
+.projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.proj { background: var(--surface); border-radius: 10px; padding: 24px; }
+.proj h3 { font-family: var(--font-display); font-size: 20px; margin: 0 0 6px; letter-spacing: -0.01em; }
+.proj .stack { font-family: var(--font-mono); font-size: 12px; color: var(--accent); margin: 0 0 12px; }
+.proj p { margin: 0; color: var(--muted); font-size: 15px; }
+
+/* contact */
+.contact h2 { max-width: 16ch; }
+.contact-list { margin-top: 32px; border-top: 1px solid var(--ink); }
+.row { display: flex; align-items: center; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.row .k { font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); width: 90px; }
+.row .v { flex: 1; min-width: 0; overflow-wrap: anywhere; font-size: 18px; }
+.copy { font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; background: transparent; color: var(--ink); border: 1px solid var(--line); border-radius: 6px; padding: 6px 12px; cursor: pointer; }
+.copy:hover { border-color: var(--ink); }
+footer { padding-block: 32px 48px; color: var(--muted); font-size: 14px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+@media (max-width: 860px) {
+  .reels { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .facts { grid-column: 1 / -1; }
+}
+@media (max-width: 520px) {
+  .reels { grid-template-columns: minmax(0, 1fr); }
+  .poster { max-width: 320px; }
+  .step + .step { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+  .step { padding-right: 0; }
+  .row .k { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .poster, .btn { transition: none; }
+  .reel:hover .poster, .btn:hover { transform: none; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="bar">
+    <a class="mark" href="#top">Basavaraj Korivad</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#toolkit">Toolkit</a>
+      <a href="#process">Process</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="hero" id="top">
+    <p class="eyebrow">AI Filmmaker · Bengaluru</p>
+    <h1>AI ads and short films for brands.</h1>
+    <p>I turn creative briefs into cinematic brand ads, product commercials and social creatives, using AI generation tools and Premiere Pro, and keep characters and scenes consistent from shot to shot.</p>
+    <div class="hero-cta">
+      <a class="btn primary" href="#work">Watch the reels</a>
+      <a class="btn ghost" href="https://linkedin.com/in/basavaraj-korivad-67a999271" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+
+  <section id="work">
+    <div class="sec-head">
+      <h2>Selected reels</h2>
+      <span class="label">Opens on Instagram</span>
+    </div>
+    <div class="reels">
+      <a class="reel" href="https://www.instagram.com/reel/DdMEKT5hfkq/" target="_blank" rel="noopener" aria-label="Watch the Chole Bhature reel on Instagram">
+        <div class="poster p1">
+          <div class="tc"><span>Reel 01</span><span>9:16</span></div>
+          <div class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></div>
+          <div class="title">Chole<br>Bhature</div>
+        </div>
+        <p class="cap"><strong>Is it your favourite as well?</strong><span>AI food ad · #food #AIcontent #cravingsatisfied</span><span class="go">Watch reel</span></p>
+      </a>
+      <a class="reel" href="https://www.instagram.com/reel/DdPI4u3h9m3/" target="_blank" rel="noopener" aria-label="Watch the Burger plus AI reel on Instagram">
+        <div class="poster p2">
+          <div class="tc"><span>Reel 02</span><span>9:16</span></div>
+          <div class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></div>
+          <div class="title">Burger<br>+ AI</div>
+        </div>
+        <p class="cap"><strong>Burger + AI</strong><span>AI food ad · #burger</span><span class="go">Watch reel</span></p>
+      </a>
+      <dl class="facts">
+        <div><dt>Format</dt><dd>Vertical reels, 9:16</dd></div>
+        <div><dt>Platform</dt><dd>Instagram</dd></div>
+        <div><dt>Subject</dt><dd>Food and product ads</dd></div>
+        <div><dt>Made with</dt><dd>AI image and video generation, edited for pacing, sound and subtitles</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="toolkit">
+    <div class="sec-head"><h2>Toolkit</h2><span class="label">What I work with</span></div>
+    <div class="cols">
+      <div>
+        <h3>Generate</h3>
+        <ul>
+          <li>Runway ML</li><li>Kling AI</li><li>Higgsfield</li><li>Sora</li><li>Pika Labs</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Edit and finish</h3>
+        <ul>
+          <li>Adobe Premiere Pro</li><li>After Effects</li><li>CapCut AI</li><li>Color grading and sound design</li><li>Subtitles, voiceover and music</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Craft</h3>
+        <ul>
+          <li>Prompting for composition, lighting and camera movement</li><li>Character and scene consistency</li><li>Scripts, shot lists and storyboards</li><li>Compositing and rotoscoping</li><li>AI voice generation and dubbing</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="sec-head"><h2>How a film gets made</h2><span class="label">Brief to delivery</span></div>
+    <div class="steps">
+      <div class="step"><span class="n">STEP 1</span><h3>Plan</h3><p>Turn the brief into a script, shot list and storyboard before generating anything.</p></div>
+      <div class="step"><span class="n">STEP 2</span><h3>Generate</h3><p>Prompt and iterate with character references and style guides until the shots hold together.</p></div>
+      <div class="step"><span class="n">STEP 3</span><h3>Edit</h3><p>Cut for pace and retention in Premiere Pro, then grade, add sound, voice and subtitles.</p></div>
+      <div class="step"><span class="n">STEP 4</span><h3>Deliver</h3><p>Export Reels, Shorts and ad creatives with fast turnaround and consistent quality.</p></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="sec-head"><h2>Projects</h2><span class="label">Beyond the reels</span></div>
+    <div class="projects">
+      <div class="proj"><h3>AI-Generated Product Promo Videos</h3><p class="stack">Runway ML · CapCut AI</p><p>Short promos that combine AI-generated visuals, automatic subtitles, transitions, voiceovers and background music for social media.</p></div>
+      <div class="proj"><h3>AI Photo Shoot and Product Visual Campaigns</h3><p class="stack">AI image generation</p><p>Product mockups, lifestyle visuals and campaign imagery that cover brand photography needs without a physical shoot.</p></div>
+      <div class="proj"><h3>AI Educational Reels</h3><p class="stack">Text-to-video · AI voice narration</p><p>AI-assisted reels that explain AI and ML concepts for Instagram and YouTube Shorts.</p></div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="sec-head"><h2>Let's make something.</h2></div>
+    <p style="max-width:52ch;color:var(--muted);margin:0">Open to AI filmmaking roles and brand projects. B.E. in Artificial Intelligence and Machine Learning, Sri Sairam College of Engineering, Bengaluru. I work in Kannada, English and Hindi.</p>
+    <div class="contact-list">
+      <div class="row"><span class="k">Email</span><span class="v" id="email">basavarakoriwad@gmail.com</span><button class="copy" type="button" data-copy="email">Copy</button></div>
+      <div class="row"><span class="k">Phone</span><span class="v" id="phone">+91 8073213423</span><button class="copy" type="button" data-copy="phone">Copy</button></div>
+      <div class="row"><span class="k">LinkedIn</span><a class="v" href="https://linkedin.com/in/basavaraj-korivad-67a999271" target="_blank" rel="noopener">linkedin.com/in/basavaraj-korivad-67a999271</a></div>
+    </div>
+  </section>
+
+  <footer><span>Basavaraj Korivad · AI Filmmaker</span><span>Bengaluru, India</span></footer>
+</div>
+
+<script>
+document.querySelectorAll('.copy').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var el = document.getElementById(btn.dataset.copy);
+    var text = el.textContent.trim();
+    function done() { var old = btn.textContent; btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = old; }, 1400); }
+    function fallback() {
+      var r = document.createRange(); r.selectNodeContents(el);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    }
+    try {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } catch (e) { fallback(); }
+  });
+});
+</script>
+</body>
+</html>
